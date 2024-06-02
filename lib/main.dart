@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutterquiz/provider/question_provider.dart';
-import 'package:flutterquiz/provider/score_provider.dart';
-import 'package:flutterquiz/screen/dashboard.dart';
-import 'package:flutterquiz/util/router.dart';
-import 'package:flutterquiz/util/router_path.dart';
+
 import 'package:provider/provider.dart';
+import 'package:quiz_app/provider/question_provider.dart';
+import 'package:quiz_app/provider/score_provider.dart';
+import 'package:quiz_app/util/router.dart';
+import 'package:quiz_app/util/router_path.dart';
 
 void main() {runApp(
     MultiProvider(providers: [

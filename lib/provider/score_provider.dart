@@ -1,8 +1,9 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutterquiz/model/score.dart';
-import 'package:flutterquiz/util/dbmanager.dart';
+
 import 'package:provider/provider.dart';
+import 'package:quiz_app/model/score.dart';
+import 'package:quiz_app/util/dbmanager.dart';
 
 class ScoreProvider with ChangeNotifier{
 

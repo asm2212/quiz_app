@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterquiz/model/question.dart';
-import 'package:flutterquiz/service/api_service.dart';
+import 'package:quiz_app/model/question.dart';
+import 'package:quiz_app/service/api_service.dart';
 
 
 class QuestionProvider with ChangeNotifier {
