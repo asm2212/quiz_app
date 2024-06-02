@@ -1,32 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:flutterquiz/provider/question_provider.dart';
+import 'package:flutterquiz/provider/score_provider.dart';
+import 'package:flutterquiz/screen/dashboard.dart';
+import 'package:flutterquiz/util/router.dart';
+import 'package:flutterquiz/util/router_path.dart';
+import 'package:provider/provider.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() {runApp(
+    MultiProvider(providers: [
+      ChangeNotifierProvider(
+        create: (BuildContext context) => QuestionProvider() ,
+      ),
+      ChangeNotifierProvider(
+        create: (_)=>ScoreProvider(),
+      )
+    ],
+      child: MyApp(),
+    )
+);
+
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-     home: HomePage()
+      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      onGenerateRoute: Routerr.generateRouter,
+      initialRoute: SplashScreen,
     );
-  }
-}
-
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold();
   }
 }
