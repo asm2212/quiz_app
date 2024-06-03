@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutterquiz/screen/homes_screen.dart';
-import 'package:flutterquiz/screen/scorescreen.dart';
-import 'package:flutterquiz/util/constant.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:quiz_app/screen/homes_screen.dart';
+import 'package:quiz_app/screen/scorescreen.dart';
+import 'package:quiz_app/util/constant.dart';
 
 class DashboardPage extends StatefulWidget {
 

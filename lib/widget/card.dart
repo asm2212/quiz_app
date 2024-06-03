@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterquiz/model/categories.dart';
 import 'package:flutterquiz/util/constant.dart';
+import 'package:quiz_app/model/categories.dart';
 
 class CardItem extends StatelessWidget {
   final int index;

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutterquiz/model/question.dart';
-import 'package:flutterquiz/provider/question_provider.dart';
 import 'package:flutterquiz/screen/quiz_screen.dart';
-import 'package:flutterquiz/util/constant.dart';
 import 'package:flutterquiz/widget/snackbar.dart';
 import 'package:provider/provider.dart';
+import 'package:quiz_app/model/question.dart';
+import 'package:quiz_app/provider/question_provider.dart';
+import 'package:quiz_app/util/constant.dart';
 
 class QuizBottomSheet extends StatefulWidget {
   final String title;

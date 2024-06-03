@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutterquiz/model/question.dart';
-import 'package:flutterquiz/util/constant.dart';
+
 import 'package:html_unescape/html_unescape_small.dart';
+import 'package:quiz_app/model/question.dart';
+import 'package:quiz_app/util/constant.dart';
 
 class ShowQuestionScreen extends StatelessWidget {
   final List<Question> listQuestion;

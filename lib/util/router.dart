@@ -1,10 +1,10 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutterquiz/screen/dashboard.dart';
-import 'package:flutterquiz/screen/quiz_finish_screen.dart';
-import 'package:flutterquiz/screen/quiz_screen.dart';
-import 'package:flutterquiz/screen/splash_screen.dart';
-import 'package:flutterquiz/util/router_path.dart';
+import 'package:quiz_app/screen/dashboard.dart';
+import 'package:quiz_app/screen/quiz_finish_screen.dart';
+import 'package:quiz_app/screen/quiz_screen.dart';
+import 'package:quiz_app/screen/splash_screen.dart';
+import 'package:quiz_app/util/router_path.dart';
 
 
 class Routerr {

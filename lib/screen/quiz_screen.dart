@@ -1,15 +1,15 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterquiz/model/question.dart';
-import 'package:flutterquiz/provider/question_provider.dart';
-import 'package:flutterquiz/provider/score_provider.dart';
-import 'package:flutterquiz/screen/quiz_finish_screen.dart';
-import 'package:flutterquiz/util/constant.dart';
 import 'package:flutterquiz/util/router_path.dart';
-import 'package:flutterquiz/widget/awesomedialog.dart';
-import 'package:flutterquiz/widget/snackbar.dart';
 import 'package:html_unescape/html_unescape.dart';
 import 'package:provider/provider.dart';
+import 'package:quiz_app/model/question.dart';
+import 'package:quiz_app/provider/question_provider.dart';
+import 'package:quiz_app/provider/score_provider.dart';
+import 'package:quiz_app/screen/quiz_finish_screen.dart';
+import 'package:quiz_app/util/constant.dart';
+import 'package:quiz_app/widget/awesomedialog.dart';
+import 'package:quiz_app/widget/snackbar.dart';
 
 
 class QuizPage extends StatefulWidget {

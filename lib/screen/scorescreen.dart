@@ -1,8 +1,8 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterquiz/provider/score_provider.dart';
-import 'package:flutterquiz/util/constant.dart';
-import 'package:flutterquiz/widget/awesomedialog.dart';
+import 'package:quiz_app/provider/score_provider.dart';
+import 'package:quiz_app/util/constant.dart';
+import 'package:quiz_app/widget/awesomedialog.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:provider/provider.dart';
 

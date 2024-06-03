@@ -1,6 +1,6 @@
 import 'dart:async';
-import 'package:flutterquiz/model/score.dart';
 import 'package:path/path.dart';
+import 'package:quiz_app/model/score.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DbManger{

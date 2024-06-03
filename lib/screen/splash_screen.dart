@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutterquiz/animation/fade_animation.dart';
-import 'package:flutterquiz/screen/quiz_screen.dart';
-import 'package:flutterquiz/util/constant.dart';
-import 'package:flutterquiz/util/router_path.dart';
+import 'package:quiz_app/animation/fade_animation.dart';
+import 'package:quiz_app/util/constant.dart';
+import 'package:quiz_app/util/router_path.dart';
+
 
 class SplashPage extends StatefulWidget {
 

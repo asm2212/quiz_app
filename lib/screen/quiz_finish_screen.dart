@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutterquiz/model/question.dart';
-import 'package:flutterquiz/provider/score_provider.dart';
-import 'package:flutterquiz/screen/dashboard.dart';
 
 import 'package:flutterquiz/screen/homes_screen.dart';
-import 'package:flutterquiz/screen/show_question_screen.dart';
-import 'package:flutterquiz/util/constant.dart';
-import 'package:flutterquiz/widget/button.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
+import 'package:quiz_app/model/question.dart';
+import 'package:quiz_app/provider/score_provider.dart';
+import 'package:quiz_app/screen/dashboard.dart';
+import 'package:quiz_app/screen/show_question_screen.dart';
+import 'package:quiz_app/util/constant.dart';
+import 'package:quiz_app/widget/button.dart';
 
 class QuizFinishPage extends StatefulWidget {
   final String title;

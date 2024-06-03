@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutterquiz/animation/fade_animation.dart';
-import 'package:flutterquiz/model/categories.dart';
-import 'package:flutterquiz/provider/question_provider.dart';
-import 'package:flutterquiz/screen/quiz_bottomsheet.dart';
-import 'package:flutterquiz/util/constant.dart';
-import 'package:flutterquiz/widget/card.dart';
 import 'package:provider/provider.dart';
+import 'package:quiz_app/animation/fade_animation.dart';
+import 'package:quiz_app/model/categories.dart';
+import 'package:quiz_app/provider/question_provider.dart';
+import 'package:quiz_app/screen/quiz_bottomsheet.dart';
+import 'package:quiz_app/util/constant.dart';
+import 'package:quiz_app/widget/card.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
