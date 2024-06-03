@@ -8,7 +8,7 @@ class ShowQuestionScreen extends StatelessWidget {
   final List<Question> listQuestion;
   final Map<int,dynamic> answer;
 
-  const ShowQuestionScreen({Key key, required this.listQuestion,required this.answer}) : super(key: key);
+  const ShowQuestionScreen({required Key key, required this.listQuestion,required this.answer}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -6,7 +6,7 @@ import 'package:quiz_app/model/categories.dart';
 class CardItem extends StatelessWidget {
   final int index;
   
-  const CardItem({Key key, required this.index}) : super(key: key);
+  const CardItem({required Key key, required this.index}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
