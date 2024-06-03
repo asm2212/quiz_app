@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:flutterquiz/screen/homes_screen.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:quiz_app/model/question.dart';
@@ -14,46 +11,44 @@ import 'package:quiz_app/widget/button.dart';
 
 class QuizFinishPage extends StatefulWidget {
   final String title;
-  final Map<int,dynamic> answer;
+  final Map<int, dynamic> answer;
   final List<Question> listQuestion;
 
-  const QuizFinishPage({Key key, @required this.title, this.answer, this.listQuestion}) : super(key: key);
+  const QuizFinishPage({Key key, required this.title, required this.answer, required this.listQuestion}) : super(key: key);
 
   @override
   _QuizFinishPageState createState() => _QuizFinishPageState();
 }
 
 class _QuizFinishPageState extends State<QuizFinishPage> {
-  int correct = 0 ;
+  int correct = 0;
   int incorrect = 0;
-  int score = 0 ;
+  int score = 0;
   final nameController = TextEditingController();
 
   @override
   void dispose() {
-    // TODO: implement dispose
-    super.dispose();
     nameController.dispose();
+    super.dispose();
   }
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     initializeDateFormatting();
     widget.answer.forEach((key, value) {
       if (widget.listQuestion[key].correctAnswer == value) {
-        correct ++;
-        score +=10;
-      }else{
-        incorrect ++;
+        correct++;
+        score += 10;
+      } else {
+        incorrect++;
       }
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
       body: Container(
         child: Stack(
           children: <Widget>[
@@ -65,7 +60,7 @@ class _QuizFinishPageState extends State<QuizFinishPage> {
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage('assets/ballon2.png'),
-                    fit: BoxFit.cover
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
@@ -77,8 +72,8 @@ class _QuizFinishPageState extends State<QuizFinishPage> {
                 height: 150,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage('assets/ballon4.png'),
-                      fit: BoxFit.cover
+                    image: AssetImage('assets/ballon4.png'),
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
@@ -91,8 +86,8 @@ class _QuizFinishPageState extends State<QuizFinishPage> {
                 height: 150,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage('assets/ballon2.png'),
-                      fit: BoxFit.cover
+                    image: AssetImage('assets/ballon2.png'),
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
@@ -105,8 +100,8 @@ class _QuizFinishPageState extends State<QuizFinishPage> {
                 height: 150,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage('assets/ballon4.png'),
-                      fit: BoxFit.cover
+                    image: AssetImage('assets/ballon4.png'),
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
@@ -114,9 +109,7 @@ class _QuizFinishPageState extends State<QuizFinishPage> {
             Positioned(
               child: Column(
                 children: <Widget>[
-                  const SizedBox(
-                    height: 40,
-                  ),
+                  const SizedBox(height: 40),
                   Container(
                     width: double.infinity,
                     child: Image.asset('assets/congratulate.png'),
@@ -126,196 +119,176 @@ class _QuizFinishPageState extends State<QuizFinishPage> {
                     children: <Widget>[
                       Text(
                         "Your Score : ",
-                        style: kHeadingTextStyleAppBar.copyWith(
-                          fontSize: 24,
-                        ),
+                        style: kHeadingTextStyleAppBar.copyWith(fontSize: 24),
                       ),
                       Text(
                         "$score",
-                        style: kHeadingTextStyleAppBar.copyWith(
-                          fontSize: 24,
-                          color: Colors.red,
-                        ),
+                        style: kHeadingTextStyleAppBar.copyWith(fontSize: 24, color: Colors.red),
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  const SizedBox(height: 20),
                   Text(
                     "You have successfully completed",
                     style: TextStyle(fontSize: 18),
                   ),
-                  const SizedBox(
-                    height: 15,
+                  const SizedBox(height: 15),
+                  Text(
+                    widget.title,
+                    style: kHeadingTextStyleAppBar.copyWith(fontSize: 25),
                   ),
-                  Text(widget.title,style: kHeadingTextStyleAppBar.copyWith(
-                    fontSize: 25
-                  ),),
-                const SizedBox(
-                  height: 15,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Chip(
-
-                        elevation: 5.0,
-                        shadowColor: Colors.black54,
-                      backgroundColor: Colors.grey[200],
-                      label: Row(
-                        children: <Widget>[
-                          Icon(Icons.check,color: Colors.green,),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Text("$correct  correct"),
-                        ],
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12)
-                      )
-                    ),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    Chip(
+                  const SizedBox(height: 15),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Chip(
                         elevation: 5.0,
                         shadowColor: Colors.black54,
                         backgroundColor: Colors.grey[200],
                         label: Row(
                           children: <Widget>[
-                            Icon(Icons.close,color: Colors.red,),
-                            const SizedBox(
-                              width: 10,
-                            ),
+                            Icon(Icons.check, color: Colors.green),
+                            const SizedBox(width: 10),
+                            Text("$correct  correct"),
+                          ],
+                        ),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                      ),
+                      const SizedBox(width: 20),
+                      Chip(
+                        elevation: 5.0,
+                        shadowColor: Colors.black54,
+                        backgroundColor: Colors.grey[200],
+                        label: Row(
+                          children: <Widget>[
+                            Icon(Icons.close, color: Colors.red),
+                            const SizedBox(width: 10),
                             Text("$incorrect incorrect"),
                           ],
                         ),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12)
-                        )
-                    ),
-                  ],
-                ),
-                  const SizedBox(
-                    height: 50,
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                      ),
+                    ],
                   ),
+                  const SizedBox(height: 50),
                   SizedBox(
                     width: 280,
                     child: Button(
-                        title: 'Show Question',
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (_)=>ShowQuestionScreen(
-                            answer: widget.answer,
-                            listQuestion: widget.listQuestion,)));
-                        },
+                      title: 'Show Question',
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => ShowQuestionScreen(
+                              answer: widget.answer,
+                              listQuestion: widget.listQuestion,
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   ),
-
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  const SizedBox(height: 20),
                   SizedBox(
                     width: 280,
                     child: Button(
-                        title: 'Save Score',
-                        onTap: (){
-                          _buildDialogSaveScore();
-                        })
+                      title: 'Save Score',
+                      onTap: () {
+                        _buildDialogSaveScore();
+                      },
+                    ),
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  const SizedBox(height: 20),
                   SizedBox(
-                      width: 280,
-                      child: Button(
-                          title: 'Home',
-                          onTap: (){
-                            Navigator.pushAndRemoveUntil(context,MaterialPageRoute(builder: (_)=>DashboardPage()), (e) => false);
-                          })
+                    width: 280,
+                    child: Button(
+                      title: 'Home',
+                      onTap: () {
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(builder: (_) => DashboardPage()),
+                          (e) => false,
+                        );
+                      },
+                    ),
                   ),
                 ],
               ),
             ),
-
           ],
         ),
       ),
     );
   }
-   _buildDialogSaveScore(){
+
+  _buildDialogSaveScore() {
     return showDialog(
       context: context,
       builder: (context) {
         return Dialog(
           backgroundColor: Colors.white,
-          insetAnimationDuration:
-          const Duration(milliseconds: 100),
+          insetAnimationDuration: const Duration(milliseconds: 100),
           shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),),
+            borderRadius: BorderRadius.circular(10),
+          ),
           child: Container(
-            padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
+            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
             width: double.infinity,
             height: 230,
             child: Column(
               children: <Widget>[
-                Text('Save Score',
-                style: kHeadingTextStyleAppBar.copyWith(
-                  fontSize: 20
-                ),),
-              SizedBox(
-                height: 15,
-              ),
-              SizedBox(
-                width: double.infinity,
-                child: TextField(
-                  controller: nameController,
-                  decoration: InputDecoration(
-                    hintText: "Your Name",
-                    prefixIcon: Icon(Icons.save),
+                Text(
+                  'Save Score',
+                  style: kHeadingTextStyleAppBar.copyWith(fontSize: 20),
+                ),
+                SizedBox(height: 15),
+                SizedBox(
+                  width: double.infinity,
+                  child: TextField(
+                    controller: nameController,
+                    decoration: InputDecoration(
+                      hintText: "Your Name",
+                      prefixIcon: Icon(Icons.save),
+                    ),
                   ),
                 ),
-              ),
-                SizedBox(
-                  height: 20,
-                ),
-                Align(alignment: Alignment.topLeft,
+                SizedBox(height: 20),
+                Align(
+                  alignment: Alignment.topLeft,
                   child: Row(
                     children: <Widget>[
-                      Text("Your Score: ",style: TextStyle(
-                        fontSize: 18
-                      ),),
-                      SizedBox(
-                        width: 8,
+                      Text(
+                        "Your Score: ",
+                        style: TextStyle(fontSize: 18),
                       ),
-                      Text(score.toString(),style: kHeadingTextStyleAppBar.copyWith(
-                        fontSize: 18,
-                        color: Colors.red
-                      ),),
+                      SizedBox(width: 8),
+                      Text(
+                        score.toString(),
+                        style: kHeadingTextStyleAppBar.copyWith(fontSize: 18, color: Colors.red),
+                      ),
                     ],
-                  ),),
-                SizedBox(
-                  height: 20,
+                  ),
                 ),
+                SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
-                    RaisedButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: kItemSelectBottomNav,
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
                       ),
-                      color: kItemSelectBottomNav,
                       onPressed: () {
+                        Navigator.pop(context);
                       },
-                      child: Text('Cancel',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),),
+                      child: Text(
+                        'Cancel',
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
-                    FlatButton(
-                        onPressed: ()  => _saveScore(),
-                        child: Text("Save"),
+                    TextButton(
+                      onPressed: () => _saveScore(),
+                      child: Text("Save"),
                     ),
                   ],
                 ),
@@ -325,12 +298,23 @@ class _QuizFinishPageState extends State<QuizFinishPage> {
         );
       },
     );
-   }
-   _saveScore() async {
-      var now =  DateTime.now();
-     String datetime =  DateFormat.yMd().format(now);
-     await Provider.of<ScoreProvider>(context,listen: false).addScore(nameController.text,
-       widget.title, score,datetime ,correct,widget.listQuestion.length);
-     Navigator.pushAndRemoveUntil(context,MaterialPageRoute(builder: (_)=>DashboardPage()), (e) => false);
-   }
+  }
+
+  _saveScore() async {
+    var now = DateTime.now();
+    String datetime = DateFormat.yMd().format(now);
+    await Provider.of<ScoreProvider>(context, listen: false).addScore(
+      nameController.text,
+      widget.title,
+      score,
+      datetime,
+      correct,
+      widget.listQuestion.length,
+    );
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (_) => DashboardPage()),
+      (e) => false,
+    );
+  }
 }

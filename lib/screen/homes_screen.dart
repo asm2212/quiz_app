@@ -16,9 +16,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    Provider.of<QuestionProvider>(context,listen: false).initValue();
+    Provider.of<QuestionProvider>(context, listen: false).initValue();
   }
 
   @override
@@ -27,18 +26,19 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: kItemSelectBottomNav
+          color: kItemSelectBottomNav,
         ),
         child: Column(
           children: <Widget>[
             const SizedBox(
               height: 50,
             ),
-            Text("Home",
+            Text(
+              "Home",
               style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 30,
               ),
             ),
             const SizedBox(
@@ -46,12 +46,13 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Expanded(
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(40),
-                    topRight: Radius.circular(40),),
+                    topRight: Radius.circular(40),
+                  ),
                 ),
                 child: SingleChildScrollView(
                   child: Column(
@@ -64,16 +65,19 @@ class _HomeScreenState extends State<HomeScreen> {
                         shrinkWrap: true,
                         itemBuilder: (BuildContext context, int index) {
                           return Padding(
-                            padding: const EdgeInsets.only(bottom: 10,right:10 ,left: 10),
+                            padding: const EdgeInsets.only(bottom: 10, right: 10, left: 10),
                             child: InkWell(
-                              onTap: ()=>_buildBottomSheet(context,categories[index].name,categories[index].id),
-                              child: FadeAnimation(0.5, CardItem(
-                                index: index,
-                              ),)
+                              onTap: () => _buildBottomSheet(context, categories[index].name, categories[index].id),
+                              child: FadeAnimation(
+                                0.5,
+                                CardItem(
+                                  index: index,
+                                ),
+                              ),
                             ),
                           );
                         },
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -81,19 +85,22 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ],
         ),
-      )
+      ),
     );
   }
 
-  _buildBottomSheet(BuildContext context,String title,int id){
-      return showModalBottomSheet(
-
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(40),
-
-          ),
-          context: context, builder: (_) {
-        return QuizBottomSheet(title: title,id: id,);
-      });
+  void _buildBottomSheet(BuildContext context, String title, int id) {
+    showModalBottomSheet(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(40),
+      ),
+      context: context,
+      builder: (_) {
+        return QuizBottomSheet(
+          title: title,
+          id: id,
+        );
+      },
+    );
   }
 }
