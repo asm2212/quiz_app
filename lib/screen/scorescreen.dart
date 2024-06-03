@@ -1,9 +1,12 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quiz_app/provider/score_provider.dart';
 import 'package:quiz_app/util/constant.dart';
 import 'package:quiz_app/widget/awesomedialog.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+
+const Color kItemSelectBottomNav = Color(0xff33333);
 
 class ScoreScreen extends StatefulWidget {
   @override
@@ -156,7 +159,7 @@ class _ScoreScreenState extends State<ScoreScreen> {
                                         ],
                                       ),
                                       Column(
-                                        mainAxisAlignment:mainAxisAlignment: MainAxisAlignment.end,
+                                        mainAxisAlignment: MainAxisAlignment.end,
                                       crossAxisAlignment: CrossAxisAlignment.end,
                                       children: <Widget>[
                                         InkWell(

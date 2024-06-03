@@ -5,19 +5,21 @@ import 'package:quiz_app/provider/question_provider.dart';
 import 'package:quiz_app/screen/quiz_screen.dart';
 import 'package:quiz_app/util/constant.dart';
 
+const Color kItemSelectBottomNav = Color(0xff33333);
+
 class QuizBottomSheet extends StatefulWidget {
   final String title;
   final int id;
 
-  const QuizBottomSheet({Key key, @required this.title, this.id}) : super(key: key);
+  const QuizBottomSheet({Key key, required this.title, required this.id}) : super(key: key);
 
   @override
   _QuizBottomSheetState createState() => _QuizBottomSheetState();
 }
 
 class _QuizBottomSheetState extends State<QuizBottomSheet> {
-  int selectNumber;
-  String selectDifficult;
+  int selectNumber = 10; // Initialize with a default value
+  String selectDifficult = 'Any'; // Initialize with a default value
   final globalKey = GlobalKey<ScaffoldState>();
 
   @override
