@@ -171,7 +171,7 @@ class _ScoreScreenState extends State<ScoreScreen> {
                                             context,
                                             "Delete",
                                             "Do you want to delete this score?",
-                                            DialogType.WARNING,
+                                              DialogType.warning,
                                             () => deleteScore(value, index),
                                             () => null,
                                           ),

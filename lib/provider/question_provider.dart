@@ -38,8 +38,8 @@ class QuestionProvider with ChangeNotifier {
       } else {
         error = "Failed to load data";
       }
-    } on DioError catch (e) {
-      error = e.message;
+    } on DioException catch (e) {
+      error = e.message!;
       print("Error: ${e.message}");
     } finally {
       isLoading = false;

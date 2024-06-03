@@ -1,6 +1,6 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterquiz/util/router_path.dart';
+import 'package:quiz_app/util/router_path.dart';
 import 'package:html_unescape/html_unescape.dart';
 import 'package:provider/provider.dart';
 import 'package:quiz_app/model/question.dart';
