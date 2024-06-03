@@ -4,7 +4,7 @@ import 'package:quiz_app/model/score.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DbManger{
-  static Database database;
+  static Database? database;
 
   Future openDatabasee() async {
     if (database == null) {
@@ -31,9 +31,9 @@ class DbManger{
     List<Score> arrUserScore = [];
     await openDatabasee();
     var res = await database.query('score');
-    res.forEach((element) {
-      arrUserScore.add(Score.fromJson(element));
-    });
+   for (var element in res) {
+    arrUserScore.add(Score.fromJson(element));
+  }
     return arrUserScore;
   }
 }

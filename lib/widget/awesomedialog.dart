@@ -6,7 +6,7 @@ import 'package:quiz_app/util/constant.dart';
    return AwesomeDialog(context: context,
        dialogType: dialogType,
        animType: AnimType.BOTTOMSLIDE,
-       tittle: title,
+       title: title,
        btnOkColor: kItemSelectBottomNav,
        desc:  message,
        btnCancelOnPress: onTapCancel,

@@ -1,12 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterquiz/util/constant.dart';
+import 'package:quiz_app/util/constant.dart';
 import 'package:quiz_app/model/categories.dart';
 
 class CardItem extends StatelessWidget {
   final int index;
   
-  const CardItem({Key key, @required this.index}) : super(key: key);
+  const CardItem({Key key, required this.index}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
