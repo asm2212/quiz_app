@@ -1,33 +1,61 @@
 import 'package:flutter/material.dart';
-import 'package:animations/animations.dart';
 
-class FadeAnimation extends StatelessWidget {
+class FadeAnimation extends StatefulWidget {
   final double delay;
   final Widget child;
 
   FadeAnimation(this.delay, this.child);
 
   @override
-  Widget build(BuildContext context) {
-    final tween = MultiTrackTween([
-      Track("opacity").add(Duration(milliseconds: 500), Tween(begin: 0.0, end: 1.0)),
-      Track("translateY").add(
-          Duration(milliseconds: 500), Tween(begin: -30.0, end: 0.0),
-          curve: Curves.easeOut)
-    ]);
+  _FadeAnimationState createState() => _FadeAnimationState();
+}
 
-    return ControlledAnimation(
-      delay: Duration(milliseconds: (500 * delay).round()),
-      duration: tween.duration,
-      tween: tween,
-      child: child,
-      builderWithChild: (context, child, animation) => Opacity(
-        opacity: animation["opacity"],
-        child: Transform.translate(
-            offset: Offset(0, animation["translateY"]),
-            child: child
-        ),
-      ),
+class _FadeAnimationState extends State<FadeAnimation> with SingleTickerProviderStateMixin {
+  AnimationController _controller;
+  Animation<double> _opacityAnimation;
+  Animation<double> _translateYAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 500),
+    );
+
+    final curve = CurvedAnimation(parent: _controller, curve: Curves.easeOut);
+
+    _opacityAnimation = Tween(begin: 0.0, end: 1.0).animate(curve);
+    _translateYAnimation = Tween(begin: -30.0, end: 0.0).animate(curve);
+
+    Future.delayed(Duration(milliseconds: (500 * widget.delay).round()), () {
+      if (mounted) {
+        _controller.forward();
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+      animation: _controller,
+      child: widget.child,
+      builder: (context, child) {
+        return Opacity(
+          opacity: _opacityAnimation.value,
+          child: Transform.translate(
+            offset: Offset(0, _translateYAnimation.value),
+            child: child,
+          ),
+        );
+      },
     );
   }
 }
